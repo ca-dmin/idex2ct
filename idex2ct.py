@@ -28,9 +28,8 @@ with open(outputFilename, 'w') as csvfile:
     fieldnames = ['Type', 'Buy', 'CurB', 'Sell', 'CurS', 'Fee', 'CurF', 'Exchange', 'Group', 'Comment', 'Trade ID', 'Date']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames, lineterminator='\r\n')
     writer.writeheader()
-    with open(inputFilename, 'rb') as csvfile:
+    with open(inputFilename, 'r') as csvfile:
         inputReader = csv.DictReader(csvfile, delimiter='\t')
-        #csv.reader(csvfile, delimiter='\t')
         for row in inputReader:
             # Defaults
             Type='Trade'
